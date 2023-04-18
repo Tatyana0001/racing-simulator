@@ -33,9 +33,6 @@
     <ClCompile Include="magic carpet.cpp">
       <Filter>Файлы заголовков</Filter>
     </ClCompile>
-    <ClCompile Include="TC_fly.cpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
     <ClCompile Include="eagle.cpp">
       <Filter>Файлы заголовков</Filter>
     </ClCompile>
@@ -69,9 +66,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="magic carpet.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="TC_fly.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="eagle.h">

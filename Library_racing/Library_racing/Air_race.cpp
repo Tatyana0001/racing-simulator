@@ -1,17 +1,14 @@
 #include "Air_race.h"
-#include <unordered_map>
-#include <map>
 
 namespace Library_racing
 {
-	auto Air_race::race(const std::string*& TC, int lenght) {
-		std::unordered_map<std::string, double>ground{};
+	void Air_race::race(std::unordered_map<std::string, double>& air, int lenght) {
 		double result;
 		magic_carpet magic_carpet;
 		eagle eagle;
 		broom broom;
-		for (int i = 0; i < (sizeof(TC) / sizeof(TC[0])); i++) {
-			if (TC[i] == magic_carpet.name()) {
+		for (auto const& elem : air) {
+			if (elem.first == magic_carpet.name()) {
 				if (lenght >= 10000) {
 					result = (lenght * 0.95) / magic_carpet.speed();
 				}
@@ -24,19 +21,19 @@ namespace Library_racing
 				else {
 					result = lenght / magic_carpet.speed();
 				}
-				ground[TC[i]] = result;
+				air[magic_carpet.name()] = result;
 			}
-			if (TC[i] == eagle.name()) {
+			if (elem.first == eagle.name()) {
 				result = (lenght * 0.94) / eagle.speed();
-				ground[TC[i]] = result;
+				air[eagle.name()] = result;
 			}
-			if (TC[i] == broom.name()) {
+			if (elem.first == broom.name()) {
 				int x = lenght / 1000;
-				double y = x / 100;
+				double y = double(x) / 100;
 				result = (lenght * (1 - y)) / broom.speed();
-				ground[TC[i]] = result;
+				air[broom.name()] = result;
 			}
 		}
-		return ground;
+		return;
 	}
 }

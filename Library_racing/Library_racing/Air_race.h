@@ -3,6 +3,7 @@
 #include "broom.h"
 #include "eagle.h"
 #include "magic carpet.h"
+#include <unordered_map>
 
 
 #ifdef LIB_EXPORTS
@@ -14,6 +15,6 @@ namespace Library_racing
 {
     class Air_race {
     public:
-        LIB_API auto race(const std::string*& TC, int lenght);
+        LIB_API void race(std::unordered_map<std::string, double>& air, int lenght);
     };
 }

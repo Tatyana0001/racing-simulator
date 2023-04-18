@@ -142,7 +142,6 @@
     <ClCompile Include="Ground_race.cpp" />
     <ClCompile Include="magic carpet.cpp" />
     <ClCompile Include="TC_data.cpp" />
-    <ClCompile Include="TC_fly.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Air_race.h" />
@@ -156,7 +155,6 @@
     <ClInclude Include="Ground_race.h" />
     <ClInclude Include="magic carpet.h" />
     <ClInclude Include="TC_data.h" />
-    <ClInclude Include="TC_fly.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

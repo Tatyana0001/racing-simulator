@@ -5,6 +5,6 @@ namespace Library_racing
         return "Метла";
     }
     int broom::speed() {
-        return 8;
+        return 20;
     }
 }

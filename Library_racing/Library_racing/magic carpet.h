@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "TC_fly.h"
+#include "TC_data.h"
 #ifdef LIB_EXPORTS
 #define LIB_API __declspec(dllexport)
 #else
@@ -8,7 +8,7 @@
 #endif
 namespace Library_racing
 {
-    class magic_carpet : public TC_fly {
+    class magic_carpet : public TC_data {
     public:
         LIB_API std::string name() override;
         LIB_API int speed() override;

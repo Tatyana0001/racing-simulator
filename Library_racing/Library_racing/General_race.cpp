@@ -1,10 +1,9 @@
 #include "General_race.h"
-#include <unordered_map>
+
 #include <map>
 namespace Library_racing
 {
-	auto General_race::race(const std::string*& TC, int lenght) {
-		std::unordered_map<std::string, double>ground{};
+	void General_race::race(std::unordered_map<std::string, double>& general, int lenght) {
 		double result;
 		camel camel;
 		camel_fast camel_fast;
@@ -13,8 +12,8 @@ namespace Library_racing
 		magic_carpet magic_carpet;
 		eagle eagle;
 		broom broom;
-		for (int i = 0; i < (sizeof(TC) / sizeof(TC[0])); i++) {
-			if (TC[i] == camel.name()) {
+		for (auto const& elem : general) {
+			if (elem.first == camel.name()) {
 				result = lenght / camel.speed();
 				if (result > 60) {
 					int x = result / 30;
@@ -26,50 +25,50 @@ namespace Library_racing
 					result += x;
 				}
 				else if (result > 30) { result += 5; }
-				ground[TC[i]] = result;
+				general[camel.name()] = result;
 			}
-			if (TC[i] == camel_fast.name()) {
+			if (elem.first == camel_fast.name()) {
 				result = lenght / camel_fast.speed();
 				if (result > 30) {
 					int x = result / 10;
 					double y = x * 8;
 					y -= 4.5;
-					if ((lenght / camel.speed()) % 10 == 0) {
+					if ((lenght / camel_fast.speed()) % 10 == 0) {
 						y -= 8;
 					}
 					result += y;
 				}
 				else if (result > 20) { result += 11.5; }
 				else if (result > 10) { result += 5; }
-				ground[TC[i]] = result;
+				general[camel_fast.name()] = result;
 			}
-			if (TC[i] == centaur.name()) {
+			if (elem.first == centaur.name()) {
 				result = lenght / centaur.speed();
 				if (result > 8) {
 					int x = result / 8;
 					x *= 2;
-					if ((lenght / camel.speed()) % 8 == 0) {
+					if ((lenght / centaur.speed()) % 8 == 0) {
 						x -= 2;
 					}
 					result += x;
 				}
-				ground[TC[i]] = result;
+				general[centaur.name()] = result;
 			}
-			if (TC[i] == boots.name()) {
+			if (elem.first == boots.name()) {
 				result = lenght / boots.speed();
 				if (result > 120) {
 					int x = result / 60;
 					x *= 5;
 					x += 5;
-					if ((lenght / camel.speed()) % 60 == 0) {
+					if ((lenght / boots.speed()) % 60 == 0) {
 						x -= 5;
 					}
 					result += x;
 				}
 				else if (result > 60) { result += 10; }
-				ground[TC[i]] = result;
+				general[boots.name()] = result;
 			}
-			if (TC[i] == magic_carpet.name()) {
+			if (elem.first == magic_carpet.name()) {
 				if (lenght >= 10000) {
 					result = (lenght * 0.95) / magic_carpet.speed();
 				}
@@ -82,19 +81,19 @@ namespace Library_racing
 				else {
 					result = lenght / magic_carpet.speed();
 				}
-				ground[TC[i]] = result;
+				general[magic_carpet.name()] = result;
 			}
-			if (TC[i] == eagle.name()) {
+			if (elem.first == eagle.name()) {
 				result = (lenght * 0.94) / eagle.speed();
-				ground[TC[i]] = result;
+				general[eagle.name()] = result;
 			}
-			if (TC[i] == broom.name()) {
+			if (elem.first == broom.name()) {
 				int x = lenght / 1000;
-				double y = x / 100;
+				double y = double(x) / 100;
 				result = (lenght * (1 - y)) / broom.speed();
-				ground[TC[i]] = result;
+				general[broom.name()] = result;
 			}
 		}
-		return ground;
+		return;
 	}
 }
